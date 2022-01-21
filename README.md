@@ -4,14 +4,13 @@
 ## 内容列表
 
 - [使用说明](#使用说明)
-- [徽章](#徽章)
 - [相关仓库](#相关仓库)
 - [如何贡献](#如何贡献)
 - [使用许可](#使用许可)
 
 ## 使用说明
 
-首先，你需要在Minecraft服务端 server.properties 文件中的对应内容
+首先，你需要修改Minecraft服务端 server.properties 文件中的对应内容
 ```
 rcon.port= #rcon端口号，随便填
 enable-rcon= #这里填写true以开启rcon
