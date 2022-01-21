@@ -1,0 +1,16 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.30'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.30'
+
+    id 'net.mamoe.mirai-console' version '2.9.2'
+}
+
+group = 'org.shirakawatyu'
+version = '1.0-SNAPSHOT'
+
+repositories {
+     maven { url 'https://maven.aliyun.com/repository/public' }
+    mavenCentral()
+}
+
+//dependencies { implementation fileTree(dir:'lib',include:['*.jar'])}
