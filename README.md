@@ -16,7 +16,7 @@ rcon.port= #rcon端口号，随便填
 enable-rcon= #这里填写true以开启rcon
 rcon.password= #rcon密码，随便填
 ```
-本插件在首次启动时会在以下路径创建四个配置文件 ip,port,groupnumber,password四个文件，你需要依次填写 服务器IP,服务器rcon端口,需要转发的群号,服务器rcon密码
+本插件在首次启动时会在以下路径创建四个配置文件 ip,port,groupnumber,password，你需要依次填写 服务器IP,服务器rcon端口,需要转发的群号,服务器rcon密码
 ```
 (mirai主目录)/config/org.shirakawatyu.qc2mc/
 ```
