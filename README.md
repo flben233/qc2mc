@@ -10,6 +10,8 @@
 
 ## 使用说明
 
+*LuckPerms与本插件似乎冲突，建议不使用LuckPerms*
+
 首先，你需要修改Minecraft服务端 server.properties 文件中的对应内容
 ```
 rcon.port= #rcon端口号，随便填
