@@ -11,7 +11,7 @@
 
 ## 使用说明
 
-*LuckPerms与本插件似乎冲突，建议不使用LuckPerms*
+*LuckPerms与本插件似乎冲突，请自行测试*
 
 首先，你需要修改Minecraft服务端 server.properties 文件中的对应内容
 ```
