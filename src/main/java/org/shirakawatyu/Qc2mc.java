@@ -49,11 +49,10 @@ public final class Qc2mc extends JavaPlugin {
         Listener listener = GlobalEventChannel.INSTANCE.subscribeAlways(GroupMessageEvent.class, event -> {
             try{
                 if(event.getGroup().getId() == Long.parseLong(readFile(gruopnumber))){
-                    String s = "[" + event.getSenderName() + "] " + event.getMessage().contentToString();
+                    Rcon rcon = new Rcon(readFile(ip), Integer.valueOf(readFile(port)), readFile(password).getBytes());
+                    String chat = "[" + event.getSenderName() + "] " + event.getMessage().contentToString();
+                    getLogger().info(rcon.command("say " + chat));
                 }
-                Rcon rcon = new Rcon(readFile(ip), Integer.valueOf(readFile(port)), readFile(password).getBytes());
-                String chat = "[" + event.getSenderName() + "] " + event.getMessage().contentToString();
-                getLogger().info(rcon.command("say " + chat));
                 } catch (IOException | AuthenticationException e) {
                 e.printStackTrace();
             }
