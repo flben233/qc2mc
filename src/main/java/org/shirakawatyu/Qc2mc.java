@@ -53,7 +53,7 @@ public final class Qc2mc extends JavaPlugin {
                     String chat = "[" + event.getSenderName() + "] " + event.getMessage().contentToString();
                     getLogger().info(rcon.command("say " + chat));
                 }
-                } catch (IOException | AuthenticationException e) {
+            } catch (IOException | AuthenticationException e) {
                 e.printStackTrace();
             }
         });
