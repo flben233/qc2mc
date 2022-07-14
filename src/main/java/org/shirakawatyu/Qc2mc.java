@@ -9,6 +9,12 @@ import net.mamoe.mirai.event.Listener;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
 
 import java.io.*;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Scanner;
+
+import static org.shirakawatyu.utils.FileUtil.readFile;
+import static org.shirakawatyu.utils.FileUtil.readFileLines;
 
 public final class Qc2mc extends JavaPlugin {
     public static final Qc2mc INSTANCE = new Qc2mc();
@@ -40,7 +46,7 @@ public final class Qc2mc extends JavaPlugin {
                 getLogger().info("******************************************************************************");
             }
             else{
-                Rcon rcon = new Rcon(readFile(ip), Integer.valueOf(readFile(port)), readFile(password).getBytes());
+                Rcon rcon = new Rcon(readFile(ip), Integer.parseInt(readFile(port)), readFile(password).getBytes());
                 getLogger().info(rcon.command("list"));
             }
         } catch (IOException | AuthenticationException e) {
@@ -49,22 +55,16 @@ public final class Qc2mc extends JavaPlugin {
         Listener listener = GlobalEventChannel.INSTANCE.subscribeAlways(GroupMessageEvent.class, event -> {
             try{
                 if(event.getGroup().getId() == Long.parseLong(readFile(gruopnumber))){
-                    Rcon rcon = new Rcon(readFile(ip), Integer.valueOf(readFile(port)), readFile(password).getBytes());
-                    String chat = "[" + event.getSenderName() + "] " + event.getMessage().contentToString();
-                    getLogger().info(rcon.command("say " + chat));
+                    for (String ipTemp:readFileLines(ip)) {
+                        Rcon rcon = new Rcon(ipTemp, Integer.parseInt(readFile(port)), readFile(password).getBytes());
+                        String chat = "[" + event.getSenderName() + "] " + event.getMessage().contentToString();
+                        getLogger().info(rcon.command("say " + chat));
+                    }
                 }
             } catch (IOException | AuthenticationException e) {
                 e.printStackTrace();
             }
         });
     }
-    public String readFile(File file) throws IOException {
-        FileReader fr = new FileReader(file);
-        int i;
-        String str = "";
-        while((i = fr.read()) != -1){
-            str += (char)i;
-        }
-        return str.trim();
-    }
+
 }
